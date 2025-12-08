@@ -165,6 +165,8 @@ python eval_vid.py \
 
 Our code is built upon [DynamiCrafter](https://github.com/Doubiiu/DynamiCrafter). We thank the authors for their great open-source contribution.
 
+## 8. Citation
+
 If you find this repository useful, please consider citing our paper:
 
 ```

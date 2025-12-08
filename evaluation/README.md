@@ -1,6 +1,6 @@
 
 
-### Image Evaluation
+## Image Evaluation
 
 To evaluate generated images:
 
@@ -12,7 +12,7 @@ python eval_img.py \
   --save_dir /path/to/save_dir
 ```
 
-### Video Evaluation
+## Video Evaluation
 
 To evaluate generated videos:
 

@@ -1,0 +1,62 @@
+model:
+  pretrained_checkpoint: /path/to/checkpoints/model.ckpt
+  pretrained_lora_checkpoint: /path/to/checkpoints/ssv2/lora_image.pth
+  base_learning_rate: 1.0e-04
+  params:
+    image_proj_model_trainable: True  # s1: True, s2: False
+    final_frame_prediction: True # s1: True, s2: False
+    reward_tuning: False
+    reward_type: []  # ['edge','depth','motion']
+    unet_config:
+      params:
+        tuning_type: 'lora'
+        current_lora_stage: 1  # 1 for stage 1; 2 for stage 2
+    image_proj_stage_config:
+      params:
+        tuning_type: 'lora'
+
+data:
+  target: utils_data.DataModuleFromConfig
+  params:
+    batch_size: 8
+    num_workers: 16
+    wrap: false
+    train:
+      target: lvdm.data.dataset.TrainVideoDataset
+      params:
+        dataset: ssv2  # ssv2, epic100, ego4d
+        data_dir: /path/to/datasets/somethingV2/train_videos
+        meta_path: /path/to/datasets/somethingV2/ssv2-train-HOI.jsonl
+#        data_dir: /path/to/datasets/epic-kitchens100/train_frames
+#        meta_path: /path/to/datasets/epic-kitchens100/EPIC_100_HOI_train.csv
+#        data_dir: /path/to/datasets/Ego4D/train_clips
+#        meta_path: /path/to/datasets/Ego4D/ego4d_train.json
+        video_length: 12  # 12 for ssv2; 16 for epic and ego4d
+        load_raw_resolution: true
+        resolution: [ 256, 256 ]
+        spatial_transform: resize_center_crop
+
+lightning:
+  precision: 16
+  trainer:
+    benchmark: True
+    accumulate_grad_batches: 1
+    max_steps: 50000  # maximum training steps
+    log_every_n_steps: 50
+    val_check_interval: 0.5
+    gradient_clip_algorithm: 'norm'
+    gradient_clip_val: 0.5
+  callbacks:
+    lora_checkpoint:
+      target: callbacks.LoRACheckpoint
+      params:
+        every_n_train_steps: 5000
+    batch_logger:
+      target: callbacks.ImageLogger
+      params:
+        batch_frequency: 500
+        to_local: False
+        max_images: 8
+        log_images_kwargs:
+          ddim_steps: 50
+          unconditional_guidance_scale: 7.5

@@ -1,0 +1,21 @@
+model:
+  params:
+    # -----------------------
+    # Stage 2: UNet Only
+    # -----------------------
+    unet_config:
+      params:
+        lora_configs:
+          stage2:
+            apply_to:
+              spatial:
+                self_attn: [ 'q', 'k', 'v' ]
+                cross_attn: [ 'q', 'k', 'v', 'k_ip', 'v_ip' ]
+              temporal:
+                self_attn: [ 'q', 'k', 'v' ]
+                cross_attn: []
+              ff: True
+            rank: 64
+            ff_rank: 64
+            dropout: 0.1
+            scaling: 1.0

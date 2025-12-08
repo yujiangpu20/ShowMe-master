@@ -1,0 +1,33 @@
+model:
+  params:
+    # -----------------------
+    # Stage 1: Q-Former (Resampler)
+    # -----------------------
+    image_proj_stage_config:
+      params:
+        lora_configs:
+          stage1:
+            apply_to:
+              spatial:
+                cross_attn: ['q', 'k', 'v']
+              ff: False
+            rank: 128
+            dropout: 0.1
+            scaling: 1.0
+
+    # -----------------------
+    # Stage 1: UNet
+    # -----------------------
+    unet_config:
+      params:
+        lora_configs:
+          stage1:
+            apply_to:
+              spatial:
+                self_attn: [ 'q', 'k', 'v' ]
+                cross_attn: [ 'q', 'k', 'v', 'k_ip', 'v_ip' ]
+              ff: True
+            rank: 128
+            ff_rank: 128
+            dropout: 0.1
+            scaling: 1.0

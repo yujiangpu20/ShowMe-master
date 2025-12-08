@@ -130,7 +130,7 @@ bash main/inference.sh
 
 ## 6. 📊 Evaluation
 
-Evaluation scripts and instructions are located in the ```evaluation/``` directory.
+Evaluation scripts and instructions are located in the [evaluation](https://github.com/yujiangpu20/ShowMe-master/tree/main/evaluation) directory.
 
 
 ## 7. Acknowledgement

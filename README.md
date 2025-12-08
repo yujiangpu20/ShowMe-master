@@ -30,7 +30,7 @@ pip install -r requirements.txt
 
 ## 2. Data Preparation
 
-We conduct experiments on three datasets: [Something-Something v2](https://www.qualcomm.com/developer/software/something-something-v-2-dataset) (ssv2), [Epic-Kitchens 100](https://epic-kitchens.github.io/2025) (epic100), and [Ego4D](https://ego4d-data.org/). Follow their standard instructions to download the raw video data, and download our reorganized annotations from [Google Drive](https://drive.google.com/drive/folders/1ns4ZM64bF9z5M5jGPeYSvfvTbcy6Ax_2?usp=drive_link). 
+We conduct experiments on three datasets: [Something-Something v2](https://www.qualcomm.com/developer/software/something-something-v-2-dataset) (ssv2), [Epic-Kitchens 100](https://epic-kitchens.github.io/2025) (epic100), and [Ego4D](https://ego4d-data.org/) Forecasting (FHO) Benchmark. Follow their standard instructions to download the raw video data, and download our reorganized annotations from [Google Drive](https://drive.google.com/drive/folders/1ns4ZM64bF9z5M5jGPeYSvfvTbcy6Ax_2?usp=drive_link). 
 
 Then organize the video data and annotations as follows:
 

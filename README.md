@@ -130,36 +130,8 @@ bash main/inference.sh
 
 ## 6. 📊 Evaluation
 
-Evaluation scripts are located in the ```evaluation/``` directory.
+Evaluation scripts and instructions are located in the ```evaluation/``` directory.
 
-### 6.1 Image Evaluation
-
-To evaluate generated images:
-
-```
-cd evaluation
-
-python eval_img.py \
-  --dataset ssv2 \
-  --meta_file /path/to/meta_file \
-  --video_dir /path/to/videos \
-  --save_dir /path/to/save_dir
-```
-
-### 6.2 Video Evaluation
-
-To evaluate generated videos:
-
-```
-cd evaluation
-
-python eval_vid.py \
-  --dataset ssv2 \
-  --meta_file /path/to/meta_file \
-  --video_dir /path/to/generated_videos \
-  --real_video_dir /path/to/real_videos \
-  --save_dir /path/to/save_dir
-```
 
 ## 7. Acknowledgement
 

@@ -30,9 +30,11 @@ pip install -r requirements.txt
 
 ## 2. Data Preparation
 
-We provide processed data via Google Drive. Please download the data from our [Google Drive](https://github.com/yujiangpu20/ShowMe-master) folder and organize the directory structure as follows:
+We conduct experiments on three datasets: [Something-Something v2](https://www.qualcomm.com/developer/software/something-something-v-2-dataset) (ssv2), [Epic-Kitchens 100](https://epic-kitchens.github.io/2025) (epic100), and [Ego4D](https://ego4d-data.org/). Follow their standard instructions to download the raw video data, and download our reorganized annotations from [Google Drive](https://drive.google.com/drive/folders/1ns4ZM64bF9z5M5jGPeYSvfvTbcy6Ax_2?usp=drive_link). 
 
-```bash
+Then organize the video data and annotations as follows:
+
+```
 Data
 ├── somethingV2
 │   ├── train_videos
@@ -78,7 +80,7 @@ You may place ```Data``` anywhere on your system, but remember the absolute path
 
 **Base Model**: Download the pretrained checkpoint from the [DynamiCrafter](https://huggingface.co/Doubiiu/DynamiCrafter/blob/main/model.ckpt) repository.
 
-**Fine-tuned Weights**: Download our LoRA weights from our [Google Drive](https://github.com/yujiangpu20/ShowMe-master).
+**Fine-tuned Weights**: Download our LoRA weights from our [Google Drive](https://drive.google.com/drive/folders/1SKr5ykRcSbf1TJCQnyM6C6i9qGLjgIx9?usp=drive_link).
 
 Put the weights under the ```checkpoints``` directory:
 

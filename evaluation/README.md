@@ -60,6 +60,8 @@ python eval_egovlp.py \
   --batch_size 32
 ```
 
+This script is adapted from ```all_metrics_in_one.py``` from [LEGO](https://github.com/BolinLai/LEGO/blob/main/metrics/all_metrics_in_one.py).
+
 ### 2.3 VQA Score
 
 To compute the VQA Score, first create a new conda environment following the instructions in the [VQAScore](https://github.com/linzhiqiu/t2v_metrics) repository and download the pretrained MLLM checkpoints.

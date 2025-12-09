@@ -30,9 +30,41 @@ pip install -r requirements.txt
 
 ## 2. Data Preparation
 
-We conduct experiments on three datasets: [Something-Something v2](https://www.qualcomm.com/developer/software/something-something-v-2-dataset) (ssv2), [Epic-Kitchens 100](https://epic-kitchens.github.io/2025) (epic100), and [Ego4D](https://ego4d-data.org/) Forecasting (FHO) Benchmark. Follow their standard instructions to download the raw video data, and download our reorganized annotations from [Google Drive](https://drive.google.com/drive/folders/1ns4ZM64bF9z5M5jGPeYSvfvTbcy6Ax_2?usp=drive_link). 
+We conduct experiments on three datasets: [Something-Something v2](https://www.qualcomm.com/developer/software/something-something-v-2-dataset) (ssv2), [Epic-Kitchens 100](https://epic-kitchens.github.io/2025) (epic100), and [Ego4D](https://ego4d-data.org/) Forecasting (FHO) Benchmark. Please follow their standard instructions to download the raw video data, and download our reorganized annotations from [Google Drive](https://drive.google.com/drive/folders/1ns4ZM64bF9z5M5jGPeYSvfvTbcy6Ax_2?usp=drive_link). 
 
-Then organize the video data and annotations as follows:
+For epic100, we adopt a two-stage processing pipeline. First, run the following command to extract the video clips:
+```
+cd data_process/
+
+python extract_epic_clips.py \
+  --csv_path /path/to/EPIC_100_HOI_train.csv \
+  --video_root /path/to/epic_videos \
+  --target_root /path/to/epic_clips \
+  --target_size 256
+```
+
+Then run the following command to curate the clips and extract the frames:
+```
+cd data_process/
+
+python filter_epic_frames.py \
+  --csv_path /path/to/EPIC_100_HOI_train.csv \
+  --video_base_path /path/to/epic_clips \
+  --output_base_path /path/to/epic_frames
+```
+
+For Ego4D, run the following command to extract the video clips:
+```
+cd data_process/
+
+python process_ego4d.py \
+  --json_path /path/to/ego4d_train.json \
+  --src_path /src_path \
+  --target_path /target_path \
+  --target_size 256
+```
+
+Finally, organize the video data and annotations as follows:
 
 ```
 Data

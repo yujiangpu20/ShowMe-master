@@ -33,7 +33,7 @@ python eval_vid.py \
   --save_dir /path/to/save_dir
 ```
 
-### 2.1 ViCLIP for SSv2
+### 2.2 ViCLIP for SSv2
 
 To compute the ViCLIP score of ```ssv2``` dataset:
 
@@ -48,7 +48,7 @@ python eval_viclip.py \
   --gpu_id 0
 ```
 
-### 2.2 EgoVLP for Epic100
+### 2.3 EgoVLP for Epic100
 
 To compute the EgoVLP score of ```epic100``` dataset:
 ```
@@ -62,7 +62,7 @@ python eval_egovlp.py \
 
 This script is adapted from ```all_metrics_in_one.py``` from [LEGO](https://github.com/BolinLai/LEGO/blob/main/metrics/all_metrics_in_one.py).
 
-### 2.3 VQA Score
+### 2.4 VQA Score
 
 To compute the VQA Score, first create a new conda environment following the instructions in the [VQAScore](https://github.com/linzhiqiu/t2v_metrics) repository and download the pretrained MLLM checkpoints.
 
@@ -79,7 +79,7 @@ python vqa_score.py \
 
 Modify the dataset names (i.e., ```ssv2```, ```epic100```, ```ego4d```) along with the corresponding data and metadata file paths.
 
-### 2.4 Motion Score
+### 2.5 Motion Score
 
 We use the standard [VBench](https://github.com/Vchitect/VBench) evaluation suite to compute **motion smoothness** and **dynamic degree**. First, creat a new conda environment according to the official instructions.
 
